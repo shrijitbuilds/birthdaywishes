@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Birthday Wishes from</title>
+</head>
+
+<body>
+
+    <h1>🎂 Birthday Wishes from</h1>
+
+    <form onsubmit="showMessage(); return false;">
+
+        <label>Name:</label>
+        <input type="text" id="name" value="Shrijit" required>
+
+        <br><br>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="male" checked>
+        Male
+
+        <br><br>
+
+        <input type="submit" value="Accept">
+        <input type="reset" value="Cancel">
+
+    </form>
+
+    <h2 id="message"></h2>
+
+    <script>
+        function showMessage() {
+            var name = document.getElementById("name").value;
+
+            document.getElementById("message").innerHTML =
+                "🎉 Thank you, " + name + "! Your birthday wishes have been accepted. 🎂";
+        }
+    </script>
+
+    <br>
+
+    <a href="index.html">⬅ Back to Birthday Website</a>
+
+</body>
+
+</html>
