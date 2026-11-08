@@ -43,8 +43,8 @@
                 </div>
 
                 <div class="hero-card">
-                    <div class="photo-frame" aria-label="Birthday illustration">
-                        <span>💖✨</span>
+                    <div class="photo-frame" id="heroPhotoFrame" aria-label="Birthday illustration">
+                        <span id="photoPlaceholder">💖✨</span>
                     </div>
                     <div class="mini-badges">
                         <span>Sweet</span>
@@ -109,6 +109,19 @@
     </div>
 
     <script>
+        const savedPhoto = localStorage.getItem('birthday_uploaded_photo');
+        const heroPhotoFrame = document.getElementById('heroPhotoFrame');
+        const photoPlaceholder = document.getElementById('photoPlaceholder');
+
+        if (savedPhoto) {
+            const img = document.createElement('img');
+            img.src = savedPhoto;
+            img.alt = 'Uploaded birthday photo';
+            img.className = 'uploaded-photo';
+            heroPhotoFrame.innerHTML = '';
+            heroPhotoFrame.appendChild(img);
+        }
+
         document.getElementById('playBirthdaySong')?.addEventListener('click', function () {
             const enteredName = document.getElementById('songName').value.trim() || 'Srijit';
             const songUrl = 'https://www.1happybirthday.com/play_song.php?name=' + encodeURIComponent(enteredName);

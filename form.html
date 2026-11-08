@@ -30,6 +30,11 @@
                 </div>
 
                 <div class="field-row">
+                    <label for="photoUpload">Upload Your Photo</label>
+                    <input type="file" id="photoUpload" accept="image/*">
+                </div>
+
+                <div class="field-row">
                     <label for="message">Your Wishes</label>
                     <textarea id="message" rows="5" placeholder="Write a beautiful message for your love..."></textarea>
                 </div>
@@ -51,10 +56,25 @@
             const name = document.getElementById("name").value.trim() || "Dear one";
             const relation = document.querySelector('input[name="relation"]:checked').value;
             const customMessage = document.getElementById("message").value.trim();
-
+            const photoInput = document.getElementById("photoUpload");
             const note = customMessage
                 ? customMessage
                 : "May your life be filled with endless love, beautiful memories, and joyful moments.";
+
+            let photoHtml = "";
+            if (photoInput && photoInput.files && photoInput.files[0]) {
+                const fileReader = new FileReader();
+                fileReader.onload = function (event) {
+                    const imageUrl = event.target.result;
+                    const localStorageKey = "birthday_uploaded_photo";
+                    localStorage.setItem(localStorageKey, imageUrl);
+
+                    document.getElementById("successMessage").innerHTML =
+                        `🎉 Thank you, ${name}! Your birthday wishes as ${relation} were sent with love.<br>${note}<br><img src="${imageUrl}" alt="Uploaded birthday photo" style="max-width: 220px; border-radius: 16px; margin-top: 12px;">`;
+                };
+                fileReader.readAsDataURL(photoInput.files[0]);
+                return;
+            }
 
             document.getElementById("successMessage").innerHTML =
                 `🎉 Thank you, ${name}! Your birthday wishes as ${relation} were sent with love.<br>${note}`;
