@@ -1,47 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Birthday Wishes from</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wishes Card</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="form-page">
+        <div class="form-card">
+            <p class="eyebrow">A little birthday note</p>
+            <h1>Send Birthday Wishes 💌</h1>
 
-    <h1>🎂 Birthday Wishes from</h1>
+            <form id="birthdayForm" onsubmit="showMessage(); return false;">
+                <div class="field-row">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" value="Shrijit" required>
+                </div>
 
-    <form onsubmit="showMessage(); return false;">
+                <div class="field-row">
+                    <label>Relationship</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="relation" value="Husband" checked> Husband</label>
+                        <label><input type="radio" name="relation" value="Partner"> Partner</label>
+                        <label><input type="radio" name="relation" value="Best Friend"> Best Friend</label>
+                    </div>
+                </div>
 
-        <label>Name:</label>
-        <input type="text" id="name" value="Shrijit" required>
+                <div class="field-row">
+                    <label for="message">Your Wishes</label>
+                    <textarea id="message" rows="5" placeholder="Write a beautiful message for your love..."></textarea>
+                </div>
 
-        <br><br>
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">Send Wishes</button>
+                    <button type="reset" class="secondary-btn small-btn">Clear</button>
+                </div>
+            </form>
 
-        <label>Gender:</label>
-        <input type="radio" name="gender" value="male" checked>
-        Male
+            <div id="successMessage" class="success-message" aria-live="polite"></div>
 
-        <br><br>
-
-        <input type="submit" value="Accept">
-        <input type="reset" value="Cancel">
-
-    </form>
-
-    <h2 id="message"></h2>
+            <a href="index.html" class="back-link">← Back to the birthday page</a>
+        </div>
+    </div>
 
     <script>
         function showMessage() {
-            var name = document.getElementById("name").value;
+            const name = document.getElementById("name").value.trim() || "Dear one";
+            const relation = document.querySelector('input[name="relation"]:checked').value;
+            const customMessage = document.getElementById("message").value.trim();
 
-            document.getElementById("message").innerHTML =
-                "🎉 Thank you, " + name + "! Your birthday wishes have been accepted. 🎂";
+            const note = customMessage
+                ? customMessage
+                : "May your life be filled with endless love, beautiful memories, and joyful moments.";
+
+            document.getElementById("successMessage").innerHTML =
+                `🎉 Thank you, ${name}! Your birthday wishes as ${relation} were sent with love.<br>${note}`;
         }
     </script>
-
-    <br>
-
-    <a href="index.html">⬅ Back to Birthday Website</a>
-
 </body>
 
 </html>

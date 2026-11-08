@@ -1,159 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Happy Birthday My Wife ❤️</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="page-shell">
+        <header class="hero-header">
+            <nav class="top-nav">
+                <a href="index.html">Home</a>
+                <a href="#wishes">Wishes</a>
+                <a href="#message">Message</a>
+                <a href="form.html">Birthday Card</a>
+            </nav>
 
-    <!-- Header -->
-    <header>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="eyebrow">For the most beautiful woman in my life</p>
+                    <h1>Happy Birthday, My Dear Wife! 🎉</h1>
+                    <p class="subtitle">
+                        You make every day brighter with your love, smile, and warmth.
+                        Today is a celebration of you and the happiness you bring into my life.
+                    </p>
 
-        <h1>🌸🎂 Happy Birthday, My Dear Wife! 🎂🌸</h1>
+                    <div class="cta-group">
+                        <a href="#wishes" class="primary-btn">Read My Wishes</a>
+                        <a href="form.html" class="secondary-btn">Send Your Love</a>
+                    </div>
 
-        <p>
-            💐 Wishing you a beautiful birthday filled with
-            happiness, love and wonderful memories. 💐
-        </p>
+                    <div class="music-box">
+                        <h3>🎵 Birthday Song</h3>
+                        <label class="song-label" for="songName">Enter a name</label>
+                        <input id="songName" type="text" value="Srijit" placeholder="Type a name">
+                        <button id="playBirthdaySong" class="primary-btn small-btn" type="button">
+                            Play Birthday Song
+                        </button>
+                    </div>
+                </div>
 
-    </header>
+                <div class="hero-card">
+                    <div class="photo-frame" aria-label="Birthday illustration">
+                        <span>💖✨</span>
+                    </div>
+                    <div class="mini-badges">
+                        <span>Sweet</span>
+                        <span>Strong</span>
+                        <span>Beautiful</span>
+                    </div>
+                </div>
+            </div>
+        </header>
 
+        <main>
+            <section class="feature-grid">
+                <article class="feature-card">
+                    <span class="icon">🌸</span>
+                    <h3>Your Smile</h3>
+                    <p>It turns ordinary days into unforgettable memories.</p>
+                </article>
+                <article class="feature-card">
+                    <span class="icon">💐</span>
+                    <h3>Your Love</h3>
+                    <p>It is the gentlest comfort and the greatest joy in my life.</p>
+                </article>
+                <article class="feature-card">
+                    <span class="icon">🎂</span>
+                    <h3>Your Day</h3>
+                    <p>Today deserves all the flowers, laughter, and happiness in the world.</p>
+                </article>
+            </section>
 
-    <!-- Navigation -->
-    <nav>
+            <section id="wishes" class="wish-panel">
+                <h2>Birthday Wishes for My Wife</h2>
+                <div class="wish-list">
+                    <p>🌹 Happy Birthday to the most wonderful woman in my life.</p>
+                    <p>🌸 May your life always be filled with peace, laughter, and beautiful moments.</p>
+                    <p>💖 May your dreams bloom beautifully and your heart stay full of joy.</p>
+                    <p>🌷 May every new day bring you happiness, success, and endless reasons to smile.</p>
+                    <p>🎉 Wishing you a truly magical birthday and a year full of love and blessings.</p>
+                </div>
+            </section>
 
-        <a href="index.html">🏠 Home</a>
+            <section id="message" class="message-box">
+                <h2>A Special Message for You</h2>
+                <p>
+                    My love, today is your special day, and I want you to know how deeply you are cherished.
+                    You are my calm, my joy, my companion, and my greatest blessing.
+                </p>
+                <p>
+                    May this new chapter of your life be full of love, growth, peace, and unforgettable memories.
+                    Keep shining, keep smiling, and keep being the beautiful soul that makes life brighter.
+                </p>
+                <blockquote>
+                    “Happy Birthday, my sweet princess. You deserve all the love and happiness this world has to offer.”
+                </blockquote>
+            </section>
+        </main>
 
-        <a href="#wishes">💌 Wishes</a>
+        <footer>
+            <p>Made with love and warm wishes just for you 💖</p>
+            <p>Have a beautiful birthday, my sweet wife ❤️</p>
+            <p class="date">2026</p>
+        </footer>
+    </div>
 
-        <a href="#message">🌹 Message</a>
+    <script>
+        document.getElementById('playBirthdaySong')?.addEventListener('click', function () {
+            const enteredName = document.getElementById('songName').value.trim() || 'Srijit';
+            const songUrl = 'https://www.1happybirthday.com/play_song.php?name=' + encodeURIComponent(enteredName);
 
-        <a href="form.html">💝 Birthday From</a>
-
-    </nav>
-
-
-    <!-- Main Birthday Section -->
-    <section class="hero">
-
-        <h2>🌷 To My Wonderful Wife 🌷</h2>
-
-
-        <!-- Wife Photo -->
-        <img src="image.jpg"
-             alt="My Wonderful Wife"
-             class="wife-photo">
-
-
-        <p>
-            🌹 On your special day, I wish you endless happiness,
-            beautiful moments and countless reasons to smile. 🌹
-        </p>
-
-        <p>
-            🌸 You deserve all the beautiful things in the world.
-            May every new day bring you happiness, peace and success. 🌸
-        </p>
-
-
-        <!-- Birthday Music -->
-        <h3>🎵 Birthday Music 🎵</h3>
-
-<audio controls>
-    <source src="birthday-new.mp3" type="audio/mpeg">
-</audio>
-
-
-        <br><br>
-
-
-        <!-- Form Button -->
-        <a href="form.html" class="button">
-            💌 Send Birthday Wishes
-        </a>
-
-    </section>
-
-
-    <!-- Birthday Wishes -->
-    <section id="wishes" class="box">
-
-        <h2>💐 Birthday Wishes for My Wife 💐</h2>
-
-        <p>
-            🌹 Happy Birthday to the most wonderful woman in my life. 🌹
-        </p>
-
-        <p>
-            🌸 May your life always be surrounded by happiness,
-            peace, love and beautiful moments. 🌸
-        </p>
-
-        <p>
-            🌷 May your dreams come true and may every step
-            you take lead you toward something beautiful. 🌷
-        </p>
-
-        <p>
-            💕 Keep smiling, keep shining and always stay
-            as wonderful as you are. 💕
-        </p>
-
-        <p>
-            🎂 Wishing you a very beautiful and memorable birthday! 🎂
-        </p>
-
-    </section>
-
-
-    <!-- Special Message -->
-    <section id="message" class="box">
-
-        <h2>🌹 A Special Message for You 🌹</h2>
-
-        <p>
-            💖 Today is your special day, and I hope you know
-            how precious and special you are.
-        </p>
-
-        <p>
-            🌺 May your days be filled with flowers of happiness,
-            moments of laughter and memories that make you smile. 🌺
-        </p>
-
-        <p>
-            💐 May this new year of your life bring you
-            beautiful opportunities, success and endless joy. 💐
-        </p>
-
-        <p>
-            🌷 Keep shining, keep smiling and enjoy every
-            beautiful moment of your special day. 🌷
-        </p>
-
-        <h2>
-            🎉🎂 Happy Birthday My sweetie princess 🎂🎉
-        </h2>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-
-        <p>🌸 Made specially for you 🌸</p>
-
-        <p>💐 With lots of happiness and warm wishes 💐</p>
-
-        <p>❤️ Have a beautiful birthday my wifeyy ❤️</p>
-
-        <p>2083-12-12</p>
-
-    </footer>
-
+            try {
+                const popup = window.open(songUrl, '_blank');
+                if (!popup) {
+                    window.location.href = songUrl;
+                }
+            } catch (error) {
+                window.location.href = songUrl;
+            }
+        });
+    </script>
 </body>
 
 </html>
