@@ -365,6 +365,7 @@ label {
 }
 
 input[type="text"],
+input[type="file"],
 textarea {
     width: 100%;
     border: 1px solid rgba(158, 103, 220, 0.25);
@@ -377,6 +378,7 @@ textarea {
 }
 
 input[type="text"]:focus,
+input[type="file"]:focus,
 textarea:focus {
     outline: none;
     border-color: var(--pink-1);
@@ -422,6 +424,87 @@ textarea:focus {
     font-weight: 700;
 }
 
+.quick-form-panel {
+    margin: 30px 0 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 26px;
+    padding: 28px 24px;
+    box-shadow: 0 16px 30px rgba(112, 58, 129, 0.12);
+}
+
+.quick-form-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.quick-form-header h2 {
+    margin: 8px 0 0;
+    color: var(--purple);
+}
+
+.quick-form {
+    display: grid;
+    gap: 18px;
+}
+
+.quick-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.field-group {
+    display: grid;
+    gap: 8px;
+}
+
+.field-group label {
+    font-weight: 700;
+    color: var(--purple);
+}
+
+.quick-form-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.home-form-status {
+    margin-top: 8px;
+    background: rgba(118, 201, 160, 0.12);
+    border: 1px solid rgba(92, 175, 121, 0.2);
+    border-radius: 16px;
+    padding: 14px 16px;
+    color: #256b43;
+    line-height: 1.7;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink-1), var(--pink-2));
+    color: var(--white);
+    font-size: 1.7rem;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(255, 82, 159, 0.32);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.25s ease;
+    z-index: 20;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 @media (max-width: 760px) {
     .hero-content,
     .feature-grid {
@@ -443,7 +526,13 @@ textarea:focus {
     }
 
     .cta-group,
-    .form-actions {
+    .form-actions,
+    .quick-form-grid {
         flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+
+    .quick-form-panel {
+        padding: 22px 18px;
     }
 }

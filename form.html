@@ -57,11 +57,20 @@
             const relation = document.querySelector('input[name="relation"]:checked').value;
             const customMessage = document.getElementById("message").value.trim();
             const photoInput = document.getElementById("photoUpload");
-            const note = customMessage
-                ? customMessage
-                : "May your life be filled with endless love, beautiful memories, and joyful moments.";
 
-            let photoHtml = "";
+            localStorage.setItem("birthday_relation", relation);
+
+            let note = customMessage;
+            if (!note) {
+                if (relation === "Best Friend") {
+                    note = "You are my forever favorite person to laugh with, trust, and celebrate life with. Happy birthday, best friend!";
+                } else if (relation === "Partner") {
+                    note = "Every day with you feels like a beautiful chapter of love. Happy birthday, my love!";
+                } else {
+                    note = "May your life be filled with endless love, beautiful memories, and joyful moments.";
+                }
+            }
+
             if (photoInput && photoInput.files && photoInput.files[0]) {
                 const fileReader = new FileReader();
                 fileReader.onload = function (event) {

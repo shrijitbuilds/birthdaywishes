@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="top">
     <div class="page-shell">
         <header class="hero-header">
             <nav class="top-nav">
@@ -20,9 +20,9 @@
 
             <div class="hero-content">
                 <div class="hero-text">
-                    <p class="eyebrow">For the most beautiful woman in my life</p>
-                    <h1>Happy Birthday, My Dear Wife! 🎉</h1>
-                    <p class="subtitle">
+                    <p id="heroEyebrow" class="eyebrow">For the most beautiful woman in my life</p>
+                    <h1 id="heroHeading">Happy Birthday, My Dear Wife! 🎉</h1>
+                    <p id="heroSubtitle" class="subtitle">
                         You make every day brighter with your love, smile, and warmth.
                         Today is a celebration of you and the happiness you bring into my life.
                     </p>
@@ -35,7 +35,7 @@
                     <div class="music-box">
                         <h3>🎵 Birthday Song</h3>
                         <label class="song-label" for="songName">Enter a name</label>
-                        <input id="songName" type="text" value="Srijit" placeholder="Type a name">
+                        <input id="songName" type="text" placeholder="Type a name">
                         <button id="playBirthdaySong" class="primary-btn small-btn" type="button">
                             Play Birthday Song
                         </button>
@@ -54,6 +54,38 @@
                 </div>
             </div>
         </header>
+
+        <section class="quick-form-panel">
+            <div class="quick-form-header">
+                <p class="eyebrow">Quick birthday card</p>
+                <h2>Send Your Love 💌</h2>
+            </div>
+
+            <form id="homeWishForm" class="quick-form">
+                <div class="quick-form-grid">
+                    <div class="field-group">
+                        <label for="homeName">Your Name</label>
+                        <input type="text" id="homeName" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="homePhoto">Upload Photo</label>
+                        <input type="file" id="homePhoto" accept="image/*">
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="homeMessage">Your Wish</label>
+                    <textarea id="homeMessage" rows="4" placeholder="Write a sweet birthday message..."></textarea>
+                </div>
+
+                <div class="quick-form-actions">
+                    <button type="submit" class="primary-btn">Send Wishes</button>
+                </div>
+
+                <div id="homeFormStatus" class="home-form-status" aria-live="polite"></div>
+            </form>
+        </section>
 
         <main>
             <section class="feature-grid">
@@ -75,27 +107,27 @@
             </section>
 
             <section id="wishes" class="wish-panel">
-                <h2>Birthday Wishes for My Wife</h2>
+                <h2 id="wishTitle">Birthday Wishes for My Wife</h2>
                 <div class="wish-list">
-                    <p>🌹 Happy Birthday to the most wonderful woman in my life.</p>
-                    <p>🌸 May your life always be filled with peace, laughter, and beautiful moments.</p>
-                    <p>💖 May your dreams bloom beautifully and your heart stay full of joy.</p>
-                    <p>🌷 May every new day bring you happiness, success, and endless reasons to smile.</p>
-                    <p>🎉 Wishing you a truly magical birthday and a year full of love and blessings.</p>
+                    <p id="wishText1">🌹 Happy Birthday to the most wonderful woman in my life.</p>
+                    <p id="wishText2">🌸 May your life always be filled with peace, laughter, and beautiful moments.</p>
+                    <p id="wishText3">💖 May your dreams bloom beautifully and your heart stay full of joy.</p>
+                    <p id="wishText4">🌷 May every new day bring you happiness, success, and endless reasons to smile.</p>
+                    <p id="wishText5">🎉 Wishing you a truly magical birthday and a year full of love and blessings.</p>
                 </div>
             </section>
 
             <section id="message" class="message-box">
-                <h2>A Special Message for You</h2>
-                <p>
+                <h2 id="messageTitle">A Special Message for You</h2>
+                <p id="messageParagraph1">
                     My love, today is your special day, and I want you to know how deeply you are cherished.
                     You are my calm, my joy, my companion, and my greatest blessing.
                 </p>
-                <p>
+                <p id="messageParagraph2">
                     May this new chapter of your life be full of love, growth, peace, and unforgettable memories.
                     Keep shining, keep smiling, and keep being the beautiful soul that makes life brighter.
                 </p>
-                <blockquote>
+                <blockquote id="messageQuote">
                     “Happy Birthday, my sweet princess. You deserve all the love and happiness this world has to offer.”
                 </blockquote>
             </section>
@@ -103,13 +135,93 @@
 
         <footer>
             <p>Made with love and warm wishes just for you 💖</p>
-            <p>Have a beautiful birthday, my sweet wife ❤️</p>
+            <p id="footerGreeting">Have a beautiful birthday, my sweet wife ❤️</p>
             <p class="date">2026</p>
         </footer>
     </div>
 
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
     <script>
         const heroPhotoFrame = document.getElementById('heroPhotoFrame');
+
+        const relationshipThemes = {
+            "Best Friend": {
+                eyebrow: "For my favorite person to laugh with and celebrate life",
+                heading: "Happy Birthday, My Best Friend! 🎉",
+                subtitle: "You make life brighter with your laughter, loyalty, and endless support. Today is all about celebrating the beautiful soul who makes every moment better.",
+                footerGreeting: "Have a beautiful birthday, my favorite friend ❤️",
+                wishTitle: "Birthday Wishes for My Best Friend",
+                wishText: [
+                    "🌹 Happy Birthday to my favorite person and the best friend in the world.",
+                    "🌸 May your days always be filled with laughter, confidence, and unforgettable memories.",
+                    "💖 May your dreams grow bigger and your heart stay light with joy and peace.",
+                    "🌷 May every new chapter bring you endless happiness, success, and reasons to smile.",
+                    "🎉 Wishing you a magical birthday with a year full of friendship, love, and fun."
+                ],
+                messageTitle: "A Special Message for My Best Friend",
+                messageParagraph1: "You are the kind of friend who turns ordinary moments into memories and hard days into something lighter. Your kindness, laughter, and support mean more than words can say.",
+                messageParagraph2: "I am so lucky to have someone as genuine, fun, and caring as you in my life. May this birthday bring you all the happiness you give to everyone around you.",
+                messageQuote: "“Happy Birthday to the best friend who makes life brighter, better, and more beautiful.”"
+            },
+            "Partner": {
+                eyebrow: "For the love of my life",
+                heading: "Happy Birthday, My Love! 🎉",
+                subtitle: "Every day with you feels like a beautiful chapter of love, comfort, and joy. Today is a celebration of you and the happiness you bring into my world.",
+                footerGreeting: "Have a beautiful birthday, my love ❤️",
+                wishTitle: "Birthday Wishes for My Love",
+                wishText: [
+                    "🌹 Happy Birthday to the most beautiful soul in my life.",
+                    "🌸 May your days be filled with love, peace, and endless smiles.",
+                    "💖 May your dreams bloom beautifully and your heart stay full of joy.",
+                    "🌷 May this year bring you all the happiness you deserve and more.",
+                    "🎉 Wishing you a magical birthday and a year full of love and blessings."
+                ],
+                messageTitle: "A Special Message for You",
+                messageParagraph1: "My love, today is your special day, and I want you to know how deeply you are cherished. You are my calm, my joy, my companion, and my greatest blessing.",
+                messageParagraph2: "May this new chapter of your life be full of love, growth, peace, and unforgettable memories. Keep shining, keep smiling, and keep being the beautiful soul that makes life brighter.",
+                messageQuote: "“Happy Birthday, my sweet princess. You deserve all the love and happiness this world has to offer.”"
+            },
+            "Husband": {
+                eyebrow: "For the most beautiful woman in my life",
+                heading: "Happy Birthday, My Dear Wife! 🎉",
+                subtitle: "You make every day brighter with your love, smile, and warmth. Today is a celebration of you and the happiness you bring into my life.",
+                footerGreeting: "Have a beautiful birthday, my sweet wife ❤️",
+                wishTitle: "Birthday Wishes for My Wife",
+                wishText: [
+                    "🌹 Happy Birthday to the most wonderful woman in my life.",
+                    "🌸 May your life always be filled with peace, laughter, and beautiful moments.",
+                    "💖 May your dreams bloom beautifully and your heart stay full of joy.",
+                    "🌷 May every new day bring you happiness, success, and endless reasons to smile.",
+                    "🎉 Wishing you a truly magical birthday and a year full of love and blessings."
+                ],
+                messageTitle: "A Special Message for You",
+                messageParagraph1: "My love, today is your special day, and I want you to know how deeply you are cherished. You are my calm, my joy, my companion, and my greatest blessing.",
+                messageParagraph2: "May this new chapter of your life be full of love, growth, peace, and unforgettable memories. Keep shining, keep smiling, and keep being the beautiful soul that makes life brighter.",
+                messageQuote: "“Happy Birthday, my sweet princess. You deserve all the love and happiness this world has to offer.”"
+            }
+        };
+
+        function updateHomepageTheme() {
+            const relation = localStorage.getItem('birthday_relation') || 'Husband';
+            const theme = relationshipThemes[relation] || relationshipThemes['Husband'];
+
+            document.getElementById('heroEyebrow').textContent = theme.eyebrow;
+            document.getElementById('heroHeading').textContent = theme.heading;
+            document.getElementById('heroSubtitle').textContent = theme.subtitle;
+
+            document.getElementById('wishTitle').textContent = theme.wishTitle;
+            theme.wishText.forEach((line, index) => {
+                const el = document.getElementById('wishText' + (index + 1));
+                if (el) el.textContent = line;
+            });
+
+            document.getElementById('messageTitle').textContent = theme.messageTitle;
+            document.getElementById('messageParagraph1').textContent = theme.messageParagraph1;
+            document.getElementById('messageParagraph2').textContent = theme.messageParagraph2;
+            document.getElementById('messageQuote').textContent = theme.messageQuote;
+            document.getElementById('footerGreeting').textContent = theme.footerGreeting;
+        }
 
         function renderHeroPhoto(imageUrl) {
             if (!heroPhotoFrame) return;
@@ -130,11 +242,17 @@
             }
         }
 
+        updateHomepageTheme();
+
         renderHeroPhoto(localStorage.getItem('birthday_uploaded_photo'));
 
         window.addEventListener('storage', function (event) {
             if (event.key === 'birthday_uploaded_photo') {
                 renderHeroPhoto(event.newValue);
+            }
+
+            if (event.key === 'birthday_relation') {
+                updateHomepageTheme();
             }
         });
 
@@ -143,7 +261,12 @@
         });
 
         document.getElementById('playBirthdaySong')?.addEventListener('click', function () {
-            const enteredName = document.getElementById('songName').value.trim() || 'Srijit';
+            const enteredName = document.getElementById('songName').value.trim();
+            if (!enteredName) {
+                document.getElementById('songName').focus();
+                return;
+            }
+
             const songUrl = 'https://www.1happybirthday.com/play_song.php?name=' + encodeURIComponent(enteredName);
 
             try {
@@ -155,6 +278,50 @@
                 window.location.href = songUrl;
             }
         });
+
+        const backToTopButton = document.getElementById('backToTop');
+        if (backToTopButton) {
+            const toggleBackToTop = () => {
+                if (window.scrollY > 250) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            };
+
+            window.addEventListener('scroll', toggleBackToTop);
+            toggleBackToTop();
+
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        const homeWishForm = document.getElementById('homeWishForm');
+        if (homeWishForm) {
+            homeWishForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const name = document.getElementById('homeName').value.trim() || 'Dear one';
+                const message = document.getElementById('homeMessage').value.trim() || 'Happy Birthday! You are so loved and cherished.';
+                const photoInput = document.getElementById('homePhoto');
+                const statusBox = document.getElementById('homeFormStatus');
+
+                if (photoInput && photoInput.files && photoInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function (event) {
+                        const imageData = event.target.result;
+                        localStorage.setItem('birthday_uploaded_photo', imageData);
+                        window.dispatchEvent(new CustomEvent('photoUpdated', { detail: imageData }));
+                        statusBox.innerHTML = `🎉 Thank you, ${name}! Your birthday wish has been saved.<br>${message}`;
+                    };
+                    reader.readAsDataURL(photoInput.files[0]);
+                    return;
+                }
+
+                statusBox.innerHTML = `🎉 Thank you, ${name}! Your birthday wish has been saved.<br>${message}`;
+            });
+        }
     </script>
 </body>
 
