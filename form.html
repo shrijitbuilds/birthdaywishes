@@ -68,6 +68,7 @@
                     const imageUrl = event.target.result;
                     const localStorageKey = "birthday_uploaded_photo";
                     localStorage.setItem(localStorageKey, imageUrl);
+                    window.dispatchEvent(new CustomEvent('photoUpdated', { detail: imageUrl }));
 
                     document.getElementById("successMessage").innerHTML =
                         `🎉 Thank you, ${name}! Your birthday wishes as ${relation} were sent with love.<br>${note}<br><img src="${imageUrl}" alt="Uploaded birthday photo" style="max-width: 220px; border-radius: 16px; margin-top: 12px;">`;

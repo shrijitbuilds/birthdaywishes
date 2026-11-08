@@ -109,18 +109,38 @@
     </div>
 
     <script>
-        const savedPhoto = localStorage.getItem('birthday_uploaded_photo');
         const heroPhotoFrame = document.getElementById('heroPhotoFrame');
-        const photoPlaceholder = document.getElementById('photoPlaceholder');
 
-        if (savedPhoto) {
-            const img = document.createElement('img');
-            img.src = savedPhoto;
-            img.alt = 'Uploaded birthday photo';
-            img.className = 'uploaded-photo';
+        function renderHeroPhoto(imageUrl) {
+            if (!heroPhotoFrame) return;
+
             heroPhotoFrame.innerHTML = '';
-            heroPhotoFrame.appendChild(img);
+
+            if (imageUrl) {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = 'Uploaded birthday photo';
+                img.className = 'uploaded-photo';
+                heroPhotoFrame.appendChild(img);
+            } else {
+                const placeholder = document.createElement('span');
+                placeholder.textContent = '💖✨';
+                placeholder.id = 'photoPlaceholder';
+                heroPhotoFrame.appendChild(placeholder);
+            }
         }
+
+        renderHeroPhoto(localStorage.getItem('birthday_uploaded_photo'));
+
+        window.addEventListener('storage', function (event) {
+            if (event.key === 'birthday_uploaded_photo') {
+                renderHeroPhoto(event.newValue);
+            }
+        });
+
+        window.addEventListener('photoUpdated', function (event) {
+            renderHeroPhoto(event.detail || localStorage.getItem('birthday_uploaded_photo'));
+        });
 
         document.getElementById('playBirthdaySong')?.addEventListener('click', function () {
             const enteredName = document.getElementById('songName').value.trim() || 'Srijit';
