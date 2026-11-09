@@ -17,16 +17,25 @@
             <form id="birthdayForm" onsubmit="showMessage(); return false;">
                 <div class="field-row">
                     <label for="name">Your Name</label>
-                    <input type="text" id="name" value="Shrijit" required>
+                    <input type="text" id="name" placeholder="Enter your name" required>
                 </div>
 
                 <div class="field-row">
-                    <label>Relationship</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="relation" value="Husband" checked> Husband</label>
-                        <label><input type="radio" name="relation" value="Partner"> Partner</label>
-                        <label><input type="radio" name="relation" value="Best Friend"> Best Friend</label>
-                    </div>
+                    <label for="relation">Birthday person is your</label>
+                    <select id="relation" name="relation" required>
+                        <option value="Best Friend">Best Friend</option>
+                        <option value="Husband">Husband</option>
+                        <option value="Wife">Wife</option>
+                        <option value="Girlfriend">Girlfriend</option>
+                        <option value="Grandfather">Grandfather</option>
+                        <option value="Grandmother">Grandmother</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Uncle">Uncle</option>
+                        <option value="Dad">Dad</option>
+                        <option value="Mom">Mom</option>
+                        <option value="Sister">Sister</option>
+                        <option value="Partner">Partner</option>
+                    </select>
                 </div>
 
                 <div class="field-row">
@@ -36,7 +45,7 @@
 
                 <div class="field-row">
                     <label for="message">Your Wishes</label>
-                    <textarea id="message" rows="5" placeholder="Write a beautiful message for your love..."></textarea>
+                    <textarea id="message" rows="5" placeholder="Write a birthday message..."></textarea>
                 </div>
 
                 <div class="form-actions">
@@ -52,9 +61,19 @@
     </div>
 
     <script>
+        const relationField = document.getElementById("relation");
+        const savedRelation = localStorage.getItem("birthday_relation");
+        relationField.value = Array.from(relationField.options).some(option => option.value === savedRelation)
+            ? savedRelation
+            : "Husband";
+
+        relationField.addEventListener("change", function () {
+            localStorage.setItem("birthday_relation", relationField.value);
+        });
+
         function showMessage() {
             const name = document.getElementById("name").value.trim() || "Dear one";
-            const relation = document.querySelector('input[name="relation"]:checked').value;
+            const relation = relationField.value;
             const customMessage = document.getElementById("message").value.trim();
             const photoInput = document.getElementById("photoUpload");
 
@@ -62,13 +81,21 @@
 
             let note = customMessage;
             if (!note) {
-                if (relation === "Best Friend") {
-                    note = "You are my forever favorite person to laugh with, trust, and celebrate life with. Happy birthday, best friend!";
-                } else if (relation === "Partner") {
-                    note = "Every day with you feels like a beautiful chapter of love. Happy birthday, my love!";
-                } else {
-                    note = "May your life be filled with endless love, beautiful memories, and joyful moments.";
-                }
+                const defaultNotes = {
+                    "Best Friend": "You are my favorite person to laugh with, trust, and celebrate life with. Happy birthday, best friend!",
+                    "Husband": "Your love, strength, and kindness make every day brighter. Happy birthday, my dear husband!",
+                    "Wife": "Your love, warmth, and kindness make every day brighter. Happy birthday, my dear wife!",
+                    "Girlfriend": "Your joy and warmth make every day more beautiful. Happy birthday, my wonderful girlfriend!",
+                    "Grandfather": "Your wisdom and stories mean so much to our family. Happy birthday, dear grandfather!",
+                    "Grandmother": "Your warmth and kindness mean so much to our family. Happy birthday, dear grandmother!",
+                    "Teacher": "Thank you for your patience, wisdom, and encouragement. Wishing you a wonderful birthday!",
+                    "Uncle": "Your humor and generosity make every family gathering brighter. Happy birthday, dear uncle!",
+                    "Dad": "Thank you for your strength, wisdom, and love. Happy birthday, Dad!",
+                    "Mom": "Thank you for your care, warmth, and endless love. Happy birthday, Mom!",
+                    "Sister": "Your laughter and support make life so much brighter. Happy birthday, dear sister!",
+                    "Partner": "Every day with you is full of love and joy. Happy birthday, my love!"
+                };
+                note = defaultNotes[relation];
             }
 
             if (photoInput && photoInput.files && photoInput.files[0]) {

@@ -366,6 +366,7 @@ label {
 
 input[type="text"],
 input[type="file"],
+select,
 textarea {
     width: 100%;
     border: 1px solid rgba(158, 103, 220, 0.25);
@@ -379,6 +380,7 @@ textarea {
 
 input[type="text"]:focus,
 input[type="file"]:focus,
+select:focus,
 textarea:focus {
     outline: none;
     border-color: var(--pink-1);

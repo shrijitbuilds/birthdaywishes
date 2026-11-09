@@ -47,9 +47,9 @@
                         <span id="photoPlaceholder">💖✨</span>
                     </div>
                     <div class="mini-badges">
-                        <span>Sweet</span>
-                        <span>Strong</span>
-                        <span>Beautiful</span>
+                        <span id="badge1">Sweet</span>
+                        <span id="badge2">Strong</span>
+                        <span id="badge3">Beautiful</span>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
         <section class="quick-form-panel">
             <div class="quick-form-header">
                 <p class="eyebrow">Quick birthday card</p>
-                <h2>Send Your Love 💌</h2>
+                <h2>Create a Birthday Wish 💌</h2>
             </div>
 
             <form id="homeWishForm" class="quick-form">
@@ -66,6 +66,24 @@
                     <div class="field-group">
                         <label for="homeName">Your Name</label>
                         <input type="text" id="homeName" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="homeRelation">Birthday person is your</label>
+                        <select id="homeRelation" required>
+                            <option value="Best Friend">Best Friend</option>
+                            <option value="Husband">Husband</option>
+                            <option value="Wife">Wife</option>
+                            <option value="Girlfriend">Girlfriend</option>
+                            <option value="Grandfather">Grandfather</option>
+                            <option value="Grandmother">Grandmother</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Uncle">Uncle</option>
+                            <option value="Dad">Dad</option>
+                            <option value="Mom">Mom</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Partner">Partner</option>
+                        </select>
                     </div>
 
                     <div class="field-group">
@@ -91,18 +109,18 @@
             <section class="feature-grid">
                 <article class="feature-card">
                     <span class="icon">🌸</span>
-                    <h3>Your Smile</h3>
-                    <p>It turns ordinary days into unforgettable memories.</p>
+                    <h3 id="featureTitle1">Your Friendship</h3>
+                    <p id="featureText1">Your friendship brings joy and meaning to everyone around you.</p>
                 </article>
                 <article class="feature-card">
                     <span class="icon">💐</span>
-                    <h3>Your Love</h3>
-                    <p>It is the gentlest comfort and the greatest joy in my life.</p>
+                    <h3 id="featureTitle2">Your Laughter</h3>
+                    <p id="featureText2">Your laughter and loyalty make you such a special part of our lives.</p>
                 </article>
                 <article class="feature-card">
                     <span class="icon">🎂</span>
-                    <h3>Your Day</h3>
-                    <p>Today deserves all the flowers, laughter, and happiness in the world.</p>
+                    <h3 id="featureTitle3">Your Special Day</h3>
+                    <p id="featureText3">May your birthday be filled with fun, laughter, and wonderful memories.</p>
                 </article>
             </section>
 
@@ -146,81 +164,64 @@
         const heroPhotoFrame = document.getElementById('heroPhotoFrame');
 
         const relationshipThemes = {
-            "Best Friend": {
-                eyebrow: "For my favorite person to laugh with and celebrate life",
-                heading: "Happy Birthday, My Best Friend! 🎉",
-                subtitle: "You make life brighter with your laughter, loyalty, and endless support. Today is all about celebrating the beautiful soul who makes every moment better.",
-                footerGreeting: "Have a beautiful birthday, my favorite friend ❤️",
-                wishTitle: "Birthday Wishes for My Best Friend",
-                wishText: [
-                    "🌹 Happy Birthday to my favorite person and the best friend in the world.",
-                    "🌸 May your days always be filled with laughter, confidence, and unforgettable memories.",
-                    "💖 May your dreams grow bigger and your heart stay light with joy and peace.",
-                    "🌷 May every new chapter bring you endless happiness, success, and reasons to smile.",
-                    "🎉 Wishing you a magical birthday with a year full of friendship, love, and fun."
-                ],
-                messageTitle: "A Special Message for My Best Friend",
-                messageParagraph1: "You are the kind of friend who turns ordinary moments into memories and hard days into something lighter. Your kindness, laughter, and support mean more than words can say.",
-                messageParagraph2: "I am so lucky to have someone as genuine, fun, and caring as you in my life. May this birthday bring you all the happiness you give to everyone around you.",
-                messageQuote: "“Happy Birthday to the best friend who makes life brighter, better, and more beautiful.”"
-            },
-            "Partner": {
-                eyebrow: "For the love of my life",
-                heading: "Happy Birthday, My Love! 🎉",
-                subtitle: "Every day with you feels like a beautiful chapter of love, comfort, and joy. Today is a celebration of you and the happiness you bring into my world.",
-                footerGreeting: "Have a beautiful birthday, my love ❤️",
-                wishTitle: "Birthday Wishes for My Love",
-                wishText: [
-                    "🌹 Happy Birthday to the most beautiful soul in my life.",
-                    "🌸 May your days be filled with love, peace, and endless smiles.",
-                    "💖 May your dreams bloom beautifully and your heart stay full of joy.",
-                    "🌷 May this year bring you all the happiness you deserve and more.",
-                    "🎉 Wishing you a magical birthday and a year full of love and blessings."
-                ],
-                messageTitle: "A Special Message for You",
-                messageParagraph1: "My love, today is your special day, and I want you to know how deeply you are cherished. You are my calm, my joy, my companion, and my greatest blessing.",
-                messageParagraph2: "May this new chapter of your life be full of love, growth, peace, and unforgettable memories. Keep shining, keep smiling, and keep being the beautiful soul that makes life brighter.",
-                messageQuote: "“Happy Birthday, my sweet princess. You deserve all the love and happiness this world has to offer.”"
-            },
-            "Husband": {
-                eyebrow: "For the most beautiful woman in my life",
-                heading: "Happy Birthday, My Dear Wife! 🎉",
-                subtitle: "You make every day brighter with your love, smile, and warmth. Today is a celebration of you and the happiness you bring into my life.",
-                footerGreeting: "Have a beautiful birthday, my sweet wife ❤️",
-                wishTitle: "Birthday Wishes for My Wife",
-                wishText: [
-                    "🌹 Happy Birthday to the most wonderful woman in my life.",
-                    "🌸 May your life always be filled with peace, laughter, and beautiful moments.",
-                    "💖 May your dreams bloom beautifully and your heart stay full of joy.",
-                    "🌷 May every new day bring you happiness, success, and endless reasons to smile.",
-                    "🎉 Wishing you a truly magical birthday and a year full of love and blessings."
-                ],
-                messageTitle: "A Special Message for You",
-                messageParagraph1: "My love, today is your special day, and I want you to know how deeply you are cherished. You are my calm, my joy, my companion, and my greatest blessing.",
-                messageParagraph2: "May this new chapter of your life be full of love, growth, peace, and unforgettable memories. Keep shining, keep smiling, and keep being the beautiful soul that makes life brighter.",
-                messageQuote: "“Happy Birthday, my sweet princess. You deserve all the love and happiness this world has to offer.”"
-            }
+            "Best Friend": { headline: "My Best Friend", subject: "My Best Friend", address: "my favorite friend", bond: "friendship", quality: "laughter, loyalty, and support", feature: "Friendship", strength: "Laughter", celebration: "fun, laughter, and unforgettable memories" },
+            "Husband": { headline: "My Dear Husband", subject: "My Husband", address: "my dear husband", bond: "love", quality: "kindness, strength, and care", feature: "Love", strength: "Strength", celebration: "love, laughter, and all the happiness you deserve" },
+            "Wife": { headline: "My Dear Wife", subject: "My Wife", address: "my dear wife", bond: "love", quality: "kindness, warmth, and care", feature: "Love", strength: "Kindness", celebration: "love, laughter, and all the happiness you deserve" },
+            "Girlfriend": { headline: "My Wonderful Girlfriend", subject: "My Girlfriend", address: "my wonderful girlfriend", bond: "love", quality: "joy, warmth, and affection", feature: "Love", strength: "Joy", celebration: "love, laughter, and beautiful memories" },
+            "Grandfather": { headline: "My Dear Grandfather", subject: "My Grandfather", address: "my dear grandfather", bond: "family", quality: "wisdom, kindness, and stories", feature: "Family", strength: "Wisdom", celebration: "family, laughter, and treasured memories" },
+            "Grandmother": { headline: "My Dear Grandmother", subject: "My Grandmother", address: "my dear grandmother", bond: "family", quality: "wisdom, kindness, and warmth", feature: "Family", strength: "Kindness", celebration: "family, laughter, and treasured memories" },
+            "Teacher": { headline: "Our Wonderful Teacher", subject: "Our Teacher", address: "our wonderful teacher", bond: "guidance", quality: "patience, wisdom, and encouragement", feature: "Guidance", strength: "Wisdom", celebration: "appreciation, joy, and the happiest memories" },
+            "Uncle": { headline: "My Dear Uncle", subject: "My Uncle", address: "my dear uncle", bond: "family", quality: "kindness, humor, and generosity", feature: "Family", strength: "Laughter", celebration: "family, laughter, and wonderful memories" },
+            "Dad": { headline: "My Dear Dad", subject: "My Dad", address: "my dear dad", bond: "family", quality: "strength, wisdom, and love", feature: "Family", strength: "Strength", celebration: "family, laughter, and all the happiness you deserve" },
+            "Mom": { headline: "My Dear Mom", subject: "My Mom", address: "my dear mom", bond: "family", quality: "care, warmth, and endless love", feature: "Family", strength: "Kindness", celebration: "family, laughter, and all the love you give to others" },
+            "Sister": { headline: "My Dear Sister", subject: "My Sister", address: "my dear sister", bond: "sisterhood", quality: "laughter, kindness, and support", feature: "Sisterhood", strength: "Laughter", celebration: "fun, laughter, and wonderful memories" },
+            "Partner": { headline: "My Love", subject: "My Partner", address: "my love", bond: "love", quality: "joy, warmth, and affection", feature: "Love", strength: "Joy", celebration: "love, laughter, and beautiful memories" }
         };
 
         function updateHomepageTheme() {
             const relation = localStorage.getItem('birthday_relation') || 'Husband';
             const theme = relationshipThemes[relation] || relationshipThemes['Husband'];
+            const name = relation.toLowerCase();
+            const celebration = `🌸 May your birthday be filled with laughter, warmth, and beautiful memories.`;
 
-            document.getElementById('heroEyebrow').textContent = theme.eyebrow;
-            document.getElementById('heroHeading').textContent = theme.heading;
-            document.getElementById('heroSubtitle').textContent = theme.subtitle;
+            document.title = `Happy Birthday, ${theme.headline}`;
 
-            document.getElementById('wishTitle').textContent = theme.wishTitle;
-            theme.wishText.forEach((line, index) => {
+            document.getElementById('heroEyebrow').textContent = `Celebrating ${theme.address}`;
+            document.getElementById('heroHeading').textContent = `Happy Birthday, ${theme.headline}! 🎉`;
+            document.getElementById('heroSubtitle').textContent = `Your ${theme.bond} and your ${theme.quality} make life brighter. Today is all about celebrating you and the happiness you bring into our lives.`;
+
+            theme.quality.split(',').map(word => word.replace(/\band\b/g, '').trim()).forEach((word, index) => {
+                const badge = document.getElementById('badge' + (index + 1));
+                if (badge) badge.textContent = word.charAt(0).toUpperCase() + word.slice(1);
+            });
+
+            document.getElementById('featureTitle1').textContent = `Your ${theme.feature}`;
+            document.getElementById('featureText1').textContent = `Your ${theme.bond} brings joy and meaning to everyone around you.`;
+            document.getElementById('featureTitle2').textContent = `Your ${theme.strength}`;
+            document.getElementById('featureText2').textContent = `Your ${theme.quality} make you such a special part of our lives.`;
+            document.getElementById('featureTitle3').textContent = 'Your Special Day';
+            document.getElementById('featureText3').textContent = `May your birthday be filled with ${theme.celebration}.`;
+
+            document.getElementById('wishTitle').textContent = `Birthday Wishes for ${theme.subject}`;
+            [
+                `🌹 Happy Birthday to ${theme.address}, someone who means so much to us.`,
+                celebration,
+                `💖 Thank you for sharing your ${theme.quality} with everyone who cares about you.`,
+                `🌷 May the year ahead bring you ${theme.celebration}.`,
+                `🎉 Here's to a wonderful birthday and a year as special as you are.`
+            ].forEach((line, index) => {
                 const el = document.getElementById('wishText' + (index + 1));
                 if (el) el.textContent = line;
             });
 
-            document.getElementById('messageTitle').textContent = theme.messageTitle;
-            document.getElementById('messageParagraph1').textContent = theme.messageParagraph1;
-            document.getElementById('messageParagraph2').textContent = theme.messageParagraph2;
-            document.getElementById('messageQuote').textContent = theme.messageQuote;
-            document.getElementById('footerGreeting').textContent = theme.footerGreeting;
+            document.getElementById('messageTitle').textContent = `A Special Message for ${theme.subject}`;
+            document.getElementById('messageParagraph1').textContent = `Today, we celebrate ${theme.address} and the ${theme.quality} that make you unforgettable. Your ${theme.bond} is a gift to everyone around you.`;
+            document.getElementById('messageParagraph2').textContent = `I hope your day is filled with ${theme.celebration}. You deserve to feel appreciated, supported, and celebrated today and every day.`;
+            document.getElementById('messageQuote').textContent = `“Happy Birthday to ${theme.address}. Thank you for being such a special part of our lives.”`;
+            document.getElementById('footerGreeting').textContent = `Have a beautiful birthday, ${theme.address}! ❤️`;
+
+            const homeRelation = document.getElementById('homeRelation');
+            if (homeRelation) homeRelation.value = relationshipThemes[relation] ? relation : 'Husband';
         }
 
         function renderHeroPhoto(imageUrl) {
@@ -243,6 +244,11 @@
         }
 
         updateHomepageTheme();
+
+        document.getElementById('homeRelation')?.addEventListener('change', function (event) {
+            localStorage.setItem('birthday_relation', event.target.value);
+            updateHomepageTheme();
+        });
 
         renderHeroPhoto(localStorage.getItem('birthday_uploaded_photo'));
 
@@ -304,8 +310,11 @@
 
                 const name = document.getElementById('homeName').value.trim() || 'Dear one';
                 const message = document.getElementById('homeMessage').value.trim() || 'Happy Birthday! You are so loved and cherished.';
+                const relation = document.getElementById('homeRelation').value;
                 const photoInput = document.getElementById('homePhoto');
                 const statusBox = document.getElementById('homeFormStatus');
+                localStorage.setItem('birthday_relation', relation);
+                updateHomepageTheme();
 
                 if (photoInput && photoInput.files && photoInput.files[0]) {
                     const reader = new FileReader();
@@ -313,13 +322,13 @@
                         const imageData = event.target.result;
                         localStorage.setItem('birthday_uploaded_photo', imageData);
                         window.dispatchEvent(new CustomEvent('photoUpdated', { detail: imageData }));
-                        statusBox.innerHTML = `🎉 Thank you, ${name}! Your birthday wish has been saved.<br>${message}`;
+                        statusBox.innerHTML = `🎉 Thank you, ${name}! Your birthday wish for your ${relation.toLowerCase()} has been saved.<br>${message}`;
                     };
                     reader.readAsDataURL(photoInput.files[0]);
                     return;
                 }
 
-                statusBox.innerHTML = `🎉 Thank you, ${name}! Your birthday wish has been saved.<br>${message}`;
+                statusBox.innerHTML = `🎉 Thank you, ${name}! Your birthday wish for your ${relation.toLowerCase()} has been saved.<br>${message}`;
             });
         }
     </script>
